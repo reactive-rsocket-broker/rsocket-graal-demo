@@ -16,6 +16,10 @@ $ # open a new tab
 $ rsc tcp://localhost:42252 --request --route request-response -d Jackie --debug
 ```
 
+# Native assist
+
+Please refer: https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds
+
 # References
 
 * RSocket: https://rsocket.io/
