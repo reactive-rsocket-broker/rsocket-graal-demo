@@ -9,4 +9,5 @@ native_build:
 
 # run native image agent to generate related configuration files
 native-assist:
+  mkdir -p target/native-image
   java -agentlib:native-image-agent=config-output-dir=./target/native-image/ -jar target/rsocket-graal-demo.jar
