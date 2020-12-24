@@ -76,20 +76,13 @@
                 <configuration>
                     <mainClass>${start-class}</mainClass>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.graalvm.nativeimage</groupId>
-                <artifactId>native-image-maven-plugin</artifactId>
-                <version>${graalvm.version}</version>
-                <configuration>
-                    <mainClass>${start-class}</mainClass>
-                    <imageName>${build.finalName}</imageName>
-                    <detail>true</detail>
-                    <skip>false</skip>
-                    <buildArgs>
-                        --no-fallback
-                    </buildArgs>
-                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -119,5 +112,41 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.graalvm.nativeimage</groupId>
+                        <artifactId>native-image-maven-plugin</artifactId>
+                        <version>${graalvm.version}</version>
+                        <configuration>
+                            <mainClass>${start-class}</mainClass>
+                            <imageName>${build.finalName}</imageName>
+                            <detail>true</detail>
+                            <buildArgs>
+                                --no-fallback
+                            </buildArgs>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>native-image</goal>
+                                </goals>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spring-boot.version}</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
