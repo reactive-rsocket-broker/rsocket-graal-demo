@@ -3,8 +3,8 @@ test:
   rsc tcp://localhost:42252 --request --route request-response -d Jackie --debug
 
 # native build
-native_build:
-   mvn -DskipTests clean package native-image:native-image
+native-build:
+   mvn -Pnative -DskipTests clean package
    upx -7 -k target/rsocket-graal-demo
 
 # run native image agent to generate related configuration files
