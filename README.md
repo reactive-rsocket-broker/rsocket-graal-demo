@@ -10,7 +10,7 @@ RSocket GraalVM Native image demo
 
 ```
 $ # switch to GraalVM 20.3.0
-$ ./compile.sh
+$ mvn -Pnative -DskipTests clean package 
 $ ./target/rsocket-graal-demo
 $ # open a new tab
 $ rsc tcp://localhost:42252 --request --route request-response -d Jackie --debug
@@ -25,7 +25,7 @@ Please refer: https://www.graalvm.org/reference-manual/native-image/BuildConfigu
 Compress GraalVM native image binary with upx:
 
 ```
-$ upx -v -7 -o rsocket-graal-demo-opt rsocket-graal-demo 
+$ upx -7 -k target/rsocket-graal-demo 
 ```
 
 # References
