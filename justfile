@@ -1,6 +1,6 @@
 # rsocket client test
 test:
-  rsc tcp://localhost:42252 --request --route request-response -d Jackie --debug
+  rsc ws://localhost:8080/~rsocket --request --route request-response -d Jackie --debug
 
 # native build
 native-build:
