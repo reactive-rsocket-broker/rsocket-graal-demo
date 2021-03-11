@@ -34,4 +34,4 @@ $ upx -7 -k target/rsocket-graal-demo
 * GraalVM: https://www.graalvm.org/
 * upx: the Ultimate Packer for eXecutables https://github.com/upx/upx
 * rsc: RSocket Client CLI https://github.com/making/rsc
-* Spring Native for GraalVM documentation: https://repo.spring.io/milestone/org/springframework/experimental/spring-graalvm-native-docs/0.8.5/spring-graalvm-native-docs-0.8.5.zip!/reference/index.html#_overview
+* Spring Native documentation: https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/
