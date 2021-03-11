@@ -35,3 +35,4 @@ $ upx -7 -k target/rsocket-graal-demo
 * upx: the Ultimate Packer for eXecutables https://github.com/upx/upx
 * rsc: RSocket Client CLI https://github.com/making/rsc
 * Spring Native documentation: https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/
+* Announcing Spring Native Beta: https://spring.io/blog/2021/03/11/announcing-spring-native-beta
