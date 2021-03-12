@@ -11,4 +11,11 @@ public class RSocketController {
     public Mono<String> requestResponse(String name) {
         return Mono.just("Hello " + name);
     }
+
+    @MessageMapping("request-user")
+    public Mono<AppUser> requestUser(String name) {
+        AppUser data = new AppUser();
+        data.setName(name);
+        return Mono.just(data);
+    }
 }
