@@ -4,12 +4,12 @@ RSocket GraalVM Native image demo
 # Requirements
 
 * Maven 3.6.x
-* GraalVM 20.3.0 with JDK 1.8  https://www.graalvm.org/downloads/
+* GraalVM 21.0.0 with JDK 1.8  https://www.graalvm.org/downloads/
 
 # How to run
 
 ```
-$ # switch to GraalVM 20.3.0
+$ # switch to GraalVM 21.0.0
 $ mvn -Pnative -DskipTests clean package 
 $ ./target/rsocket-graal-demo
 $ # open a new tab
