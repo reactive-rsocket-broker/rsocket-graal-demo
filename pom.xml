@@ -13,9 +13,9 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <graalvm.version>21.0.0.2</graalvm.version>
-        <spring-boot.version>2.4.5</spring-boot.version>
-        <spring-native.version>0.9.2</spring-native.version>
+        <graalvm.version>21.1.0</graalvm.version>
+        <spring-boot.version>2.5.2</spring-boot.version>
+        <spring-native.version>0.10.1</spring-native.version>
         <start-class>org.mvnsearch.rsocket.graal.RsocketGraalApp</start-class>
     </properties>
 
@@ -62,7 +62,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.7.1</version>
+                <version>5.7.2</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -125,18 +125,22 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.graalvm.nativeimage</groupId>
-                        <artifactId>native-image-maven-plugin</artifactId>
-                        <version>${graalvm.version}</version>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>0.9.0</version>
                         <configuration>
                             <mainClass>${start-class}</mainClass>
                             <imageName>${build.finalName}</imageName>
                             <detail>true</detail>
+                            <buildArgs>
+                                --no-fallback
+                            </buildArgs>
                         </configuration>
                         <executions>
                             <execution>
+                                <id>build-native</id>
                                 <goals>
-                                    <goal>native-image</goal>
+                                    <goal>build</goal>
                                 </goals>
                                 <phase>package</phase>
                             </execution>
